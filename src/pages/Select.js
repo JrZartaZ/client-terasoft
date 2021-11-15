@@ -8,17 +8,17 @@ const Select = ({ urn, property, field, label, formData, setFormData }) => {
             data: [],
             obj: {}
         }),
-        { selected, data, nombre } = select;
+        { data, nombre } = select;
 
     useEffect( () => {
         
 		const getDataAvailableProductsAPI = async () => {
 			const
-				response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }${ urn }` ),
-				data = await response .json();
+				response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }${ urn }` ),
+				data = await response.json();
 			
-            console .log( property )
-			console .log( data[ property ] );
+            console.log( property )
+			console.log( data[ property ] );
 		
             setSelect({
                 ...select,
@@ -39,8 +39,8 @@ const Select = ({ urn, property, field, label, formData, setFormData }) => {
 
         console.log( data );
 
-        const selectedObject = data .filter( obj => (
-            obj.nombre == event.target.value
+        const selectedObject = data.filter( obj => (
+            obj.nombre === event.target.value
         ));
 
         setFormData({
@@ -65,8 +65,8 @@ const Select = ({ urn, property, field, label, formData, setFormData }) => {
                 onChange = { handleChange }
             >
                 <option value="">Seleccione...</option>
-                {   data .map( item => (
-                    <option key={ item ._id } value={ item .nombre }>{ item .nombre }</option>
+                {   data.map( item => (
+                    <option key={ item._id } value={ item.nombre }>{ item.nombre }</option>
                 ))}
                 
             </select>

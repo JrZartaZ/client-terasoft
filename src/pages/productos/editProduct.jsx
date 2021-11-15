@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import BarraNav from '../../components/BarraNav';
@@ -21,8 +21,8 @@ function EditProduct(){
     useEffect( () => {
         const getDataAPI =  async () => {
             const
-                response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/productos/${ id }` ),
-                data = await response .json();
+                response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/productos/${ id }` ),
+                data = await response.json();
 
             console.log( data );
             setProduct( data.product );
@@ -40,10 +40,10 @@ function EditProduct(){
     }
 
     const handleSubmit = async event => {
-        event .preventDefault();
+        event.preventDefault();
 
         const
-            response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/productos/${ id }`, {
+            response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/productos/${ id }`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'

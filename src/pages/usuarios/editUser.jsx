@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import BarraNav from '../../components/BarraNav';
@@ -17,15 +17,15 @@ const EditUser = () => {
         estado: '',
         rol: ''
     });
-    const { cedula, nombre, apellido, ciudad, direccion, telefono, correo, estado, rol } = user;
+    const { cedula, nombre, ciudad, direccion, telefono, correo, estado, rol } = user;
     const { id } = useParams();
     const navigate = useNavigate();
 
     useEffect( () => {
         const getDataAPI =  async () => {
             const
-                response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/usuarios/${ id }` ),
-                data = await response .json();
+                response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/usuarios/${ id }` ),
+                data = await response.json();
 
             console.log( data );
             setUser( data.user );
@@ -43,10 +43,10 @@ const EditUser = () => {
     }
 
     const handleSubmit = async event => {
-        event .preventDefault();
+        event.preventDefault();
 
         const
-            response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/usuarios/${ id }`, {
+            response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/usuarios/${ id }`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'

@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import BarraNav from '../../components/BarraNav';
@@ -6,7 +6,6 @@ import TopBar from '../../components/TopBar';
 import Footer from '../../components/Footer';
 
 function AddProduct(){
-    {/*Defino las variables para capturar los datos de add-product*/}
     const [ product, setProduct ] = useState({
         codigo: '',
         nombre: '',
@@ -26,10 +25,10 @@ function AddProduct(){
     }
 
     const handleSubmit = async event => {
-        event .preventDefault();
+        event.preventDefault();
 
         const
-            response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/productos`, {
+            response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/productos`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'

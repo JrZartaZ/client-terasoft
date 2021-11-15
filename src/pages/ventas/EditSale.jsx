@@ -26,8 +26,8 @@ function EditSale() {
 			},
 			selectedObject: {}
 		}),
-		{ sale, selectedObject } = formData,
-		{ codigo, cedula, nombreCliente, nombreEncargado, producto, valor, cantidad, total, estado, fechaVenta } = sale,
+		{ sale } = formData,
+		{ codigo, cedula, nombreCliente, valor, cantidad, total, estado } = sale,
         { id } = useParams(),
 		navigate = useNavigate();
 
@@ -35,8 +35,8 @@ function EditSale() {
     useEffect( () => {
         const getDataAPI =  async () => {
             const
-                response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/ventas/${ id }` ),
-                data = await response .json();
+                response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/ventas/${ id }` ),
+                data = await response.json();
 
             console.log( data );
 
@@ -58,17 +58,17 @@ function EditSale() {
             sale: {
                 ...sale,
                 [ event.target.name ]: event.target.value,
-                total: ( event.target.name == 'cantidad' ) ? event.target.value *  valor : 0
+                total: ( event.target.name === 'cantidad' ) ? event.target.value *  valor : 0
             }
             
         });
     }
 
     const handleSubmit = async event => {
-        event .preventDefault();
+        event.preventDefault();
 
         const
-            response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/ventas/${ id }`, {
+            response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/ventas/${ id }`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'

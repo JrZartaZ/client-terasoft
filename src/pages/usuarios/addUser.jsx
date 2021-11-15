@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import BarraNav from '../../components/BarraNav';
@@ -16,7 +16,7 @@ const AddUser = () => {
         estado: '',
         rol: ''
     });
-    const { cedula, nombre, apellido, ciudad, direccion, telefono, correo, estado, rol } = user;
+    const { cedula, nombre, ciudad, direccion, telefono, correo, estado, rol } = user;
     const navigate = useNavigate();
 
     const handleChange = event => {
@@ -27,10 +27,10 @@ const AddUser = () => {
     }
 
     const handleSubmit = async event => {
-        event .preventDefault();
+        event.preventDefault();
 
         const
-            response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/usuarios`, {
+            response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/usuarios`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import BarraNav from '../../components/BarraNav';
 import TopBar from '../../components/TopBar';
@@ -12,14 +12,13 @@ function ProductList(){
 
     const
         [ products, setProducts ] = useState([]),
-        [ productIdDelete, setProductIdDelete ] = useState( null ),
-        navigate = useNavigate();
+        [ productIdDelete, setProductIdDelete ] = useState( null );
 
     useEffect( () => {
         const getDataAPI = async () => {
             const
-                response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/productos` ),
-                data = await response .json();
+                response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/productos` ),
+                data = await response.json();
 
             //console.log( data );
             setProducts( data.products );
@@ -37,7 +36,7 @@ function ProductList(){
     const handleDelete = async () => {
 
         const
-            response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/productos/${ productIdDelete }`, {
+            response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/productos/${ productIdDelete }`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
@@ -113,13 +112,13 @@ function ProductList(){
                                                         <td>
                                                             <Link
                                                                 to={{
-                                                                    pathname: `/edit-product/${ product ._id }`
+                                                                    pathname: `/edit-product/${ product._id }`
                                                                   }}
                                                                 className="btn btn-primary btn-circle btn-sm">
                                                                 <span className="fas fa-pencil-alt fa-lg" aria-hidden="true"></span>
                                                             </Link>
                                                             
-                                                            <Link to={``} onClick={ () => handleGetProductID( product ._id ) } className="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#deleteModal">
+                                                            <Link to={``} onClick={ () => handleGetProductID( product._id ) } className="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#deleteModal">
                                                                 <span className="fa fa-trash fa-lg" aria-hidden="true"></span>
                                                             </Link>
                                                         </td>

@@ -15,8 +15,8 @@ function SalesList() {
     useEffect( () => {
         const getDataAPI = async () => {
             const
-                response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/ventas` ),
-                data = await response .json();
+                response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/ventas` ),
+                data = await response.json();
 
             //console.log( data );
             setSales( data.sales );
@@ -34,7 +34,7 @@ function SalesList() {
     const handleDelete = async () => {
 
         const
-            response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/ventas/${ saleIdDelete }`, {
+            response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/ventas/${ saleIdDelete }`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
@@ -104,28 +104,28 @@ function SalesList() {
                             <tbody>
 
                             {/* Podemos imprimir un array de objetos HTML (que es un array de DOM ) */}
-                            {   sales .map( sale =>{
+                            {   sales.map( sale =>{
                                     return(
-                                        <tr key={ sale ._id }>
-                                            <td>{ sale .codigo }</td>
-                                            <td>{ sale .cedula }</td>
-                                            <td>{ sale .nombreCliente }</td>
-                                            <td>{ sale .nombreEncargado }</td>
-                                            <td>{ sale .producto }</td>
-                                            <td>{ sale .estado }</td>
-                                            <td>{ sale .cantidad }</td>
-                                            <td>{ sale .total }</td>
+                                        <tr key={ sale._id }>
+                                            <td>{ sale.codigo }</td>
+                                            <td>{ sale.cedula }</td>
+                                            <td>{ sale.nombreCliente }</td>
+                                            <td>{ sale.nombreEncargado }</td>
+                                            <td>{ sale.producto }</td>
+                                            <td>{ sale.estado }</td>
+                                            <td>{ sale.cantidad }</td>
+                                            <td>{ sale.total }</td>
                                             <td>
 
                                                 <Link
                                                     to={{
-                                                        pathname: `/edit-sale/${ sale ._id }`
+                                                        pathname: `/edit-sale/${ sale._id }`
                                                         }}
                                                     className="btn btn-primary btn-circle btn-sm">
                                                     <span className="fas fa-pencil-alt fa-lg" aria-hidden="true"></span>
                                                 </Link>
                                                 
-                                                <Link to={``} onClick={ () => handleGetSaleID( sale ._id ) } className="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#deleteModal">
+                                                <Link to={``} onClick={ () => handleGetSaleID( sale._id ) } className="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#deleteModal">
                                                     <span className="fa fa-trash fa-lg" aria-hidden="true"></span>
                                                 </Link>
 

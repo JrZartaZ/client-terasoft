@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import BarraNav from '../../components/BarraNav';
 import TopBar from '../../components/TopBar';
@@ -10,14 +10,13 @@ const UserList = () => {
 
     const
         [ users, setUsers ] = useState([]),
-        [ userIdDelete, setUserIdDelete ] = useState( null ),
-        navigate = useNavigate();
+        [ userIdDelete, setUserIdDelete ] = useState( null );
 
     useEffect( () => {
         const getDataAPI = async () => {
             const
-                response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/usuarios` ),
-                data = await response .json();
+                response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/usuarios` ),
+                data = await response.json();
 
             //console.log( data );
             setUsers( data.users );
@@ -35,7 +34,7 @@ const UserList = () => {
     const handleDelete = async () => {
 
         const
-            response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/usuarios/${ userIdDelete }`, {
+            response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/usuarios/${ userIdDelete }`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
@@ -105,24 +104,24 @@ const UserList = () => {
                                                     return(
 
                                                         <tr key={ user._id }>
-                                                            <td>{ user .cedula }</td>
-                                                            <td>{ user .nombre }</td>
-                                                            <td>{ user .correo }</td>
-                                                            <td>{ user .telefono }</td>
-                                                            <td>{ user .ciudad }</td>
-                                                            <td>{ user. direccion }</td>
-                                                            <td>{ user .rol }</td>
-                                                            <td>{ user .estado }</td>
+                                                            <td>{ user.cedula }</td>
+                                                            <td>{ user.nombre }</td>
+                                                            <td>{ user.correo }</td>
+                                                            <td>{ user.telefono }</td>
+                                                            <td>{ user.ciudad }</td>
+                                                            <td>{ user.direccion }</td>
+                                                            <td>{ user.rol }</td>
+                                                            <td>{ user.estado }</td>
                                                             <td>
                                                                 <Link
                                                                     to={{
-                                                                        pathname: `/edit-user/${ user ._id }`
+                                                                        pathname: `/edit-user/${ user._id }`
                                                                         }}
                                                                     className="btn btn-primary btn-circle btn-sm">
                                                                     <span className="fas fa-pencil-alt fa-lg" aria-hidden="true"></span>
                                                                 </Link>
 
-                                                                <Link to={``} onClick={ () => handleGetUserID( user ._id ) } className="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#deleteModal">
+                                                                <Link to={``} onClick={ () => handleGetUserID( user._id ) } className="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#deleteModal">
                                                                     <span className="fa fa-trash fa-lg" aria-hidden="true"></span>
                                                                 </Link>
 

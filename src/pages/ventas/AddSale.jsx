@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import BarraNav from '../../components/BarraNav';
@@ -26,8 +26,8 @@ function AddSale() {
 			},
 			selectedObject: {}
 		}),
-		{ sale, selectedObject } = formData,
-		{ codigo, cedula, nombreCliente, nombreEncargado, producto, valor, cantidad, total, estado, fechaVenta } = sale,
+		{ sale } = formData,
+		{ codigo, cedula, nombreCliente, valor, cantidad, total, estado } = sale,
 		navigate = useNavigate();
 
 	const handleChange = event => {
@@ -37,22 +37,22 @@ function AddSale() {
 			sale: {
 				...sale,
 				[ event.target.name ]: event.target.value,
-				total: ( event.target.name == 'cantidad' ) ? event.target.value *  valor : 0
+				total: ( event.target.name === 'cantidad' ) ? event.target.value *  valor : 0
 			}
 			
 		});
 	}
 
 	const handleSubmit = async event => {
-        event .preventDefault();
+        event.preventDefault();
 
 		// TODO: Que el precio cambie cuando cambia el producto
-		if( formData .sale .estado != undefined ) {
-			formData .sale .estado = 'en proceso';
+		if( formData.sale.estado !== undefined ) {
+			formData.sale.estado = 'en proceso';
 		}
 
         const
-            response = await fetch( `${ process .env .REACT_APP_LOCAL_URI }/ventas`, {
+            response = await fetch( `${ process.env.REACT_APP_LOCAL_URI }/ventas`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'

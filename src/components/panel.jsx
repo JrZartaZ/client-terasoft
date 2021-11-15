@@ -14,7 +14,7 @@ function Panel () {
                 <a className="nav-link dropdown-toggle" href="/home/listSale" id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span className="mr-2 d-none d-lg-inline text-gray-600 small">Home</span>
-                    <img className="img-profile" src="img/casa.png"/>
+                    <img className="img-profile" src="img/casa.png" alt="" />
                 </a>
             </li>
 

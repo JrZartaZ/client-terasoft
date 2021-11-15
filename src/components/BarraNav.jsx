@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const BarraNav = () => {
     return (
@@ -32,13 +32,13 @@ const BarraNav = () => {
 
 {/*Nav Item - Pages Collapse Menu */}
 <li className="nav-item">
-    <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+    <span className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
         {/* En la linea siguiente está el ícono con el que viene la app por defecto*/}
         {/*<i className="fas fa-fw fa-cog"></i> */}
         <i className="fa fa-user" aria-hidden="true"></i>
         <span>Gestionar Usuarios</span>
-    </a>
+    </span>
     <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div className="bg-white py-2 collapse-inner rounded">
             <h6 className="collapse-header">GESTIONAR USUARIOS:</h6>
@@ -50,11 +50,11 @@ const BarraNav = () => {
 
 {/* Nav Item - Utilities Collapse Menu */}
 <li className="nav-item">
-    <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+    <span className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
         aria-expanded="true" aria-controls="collapseUtilities">
         <i className="fa fa-shopping-cart" aria-hidden="true"></i>
         <span>Gestionar Ventas</span>
-    </a>
+    </span>
     <div id="collapseUtilities" className="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div className="bg-white py-2 collapse-inner rounded">
@@ -69,11 +69,11 @@ const BarraNav = () => {
 
 
 <li className="nav-item">
-    <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+    <span className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
         aria-expanded="true" aria-controls="collapsePages">
         <i className="fa fa-shopping-bag" aria-hidden="true"></i>
         <span>Productos</span>
-    </a>
+    </span>
     <div id="collapsePages" className="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div className="bg-white py-2 collapse-inner rounded">
             <h6 className="collapse-header">Gestionar Productos:</h6>
